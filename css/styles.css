@@ -325,5 +325,104 @@ h1,h2,h3{ font-weight:300; line-height:1.05; letter-spacing:-.02em; }
 }
 
 /* =====================================================================
+   SCHEDULE (weekly table)
+   ===================================================================== */
+.legend{ display:flex; gap:24px; flex-wrap:wrap; margin-bottom:28px; }
+.legend .lg-item{ display:inline-flex; align-items:center; gap:9px; font-size:13px; color:var(--ink-2); }
+.cdot{ width:11px; height:11px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.12); flex:none; }
+
+.wgrid-scroll{ overflow-x:auto; padding-bottom:6px; }
+.wgrid{
+  display:grid; grid-template-columns:118px repeat(6, minmax(122px,1fr));
+  gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:8px; overflow:hidden; min-width:860px;
+}
+.wg-h{
+  background:var(--ink); color:var(--bg); padding:16px 12px;
+  text-align:center; font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:600;
+}
+.wg-h.time{ text-align:left; }
+.wg-time{
+  background:var(--bg-2); display:flex; flex-direction:column; justify-content:center;
+  padding:16px 14px; font-size:13px; font-weight:600; color:var(--ink);
+}
+.wg-time span{ font-size:12px; font-weight:400; color:var(--ink-3); margin-top:2px; }
+.wg-cell{
+  background:var(--bg-2); min-height:78px; padding:14px 16px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.wg-cell.empty{ background:#F0EAE0; }
+.wg-cell .cn{ font-size:14px; font-weight:600; line-height:1.25; color:var(--ink); }
+.wg-cell .ct{ font-size:13px; color:rgba(30,30,30,.6); margin-top:3px; }
+.wg-cell.hyrox .cn{ color:#fff; }
+.wg-cell.hyrox .ct{ color:rgba(255,255,255,.62); }
+.wg-note{ margin-top:18px; font-size:13px; color:var(--ink-3); font-style:italic; }
+
+/* =====================================================================
+   CONTACT / BOOKING FORM
+   ===================================================================== */
+.contact .eyebrow{ color:rgba(243,238,230,.6); }
+.contact-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(40px,5vw,80px); align-items:start; }
+
+.contact-info h2{ font-size:var(--t-h2); color:#fff; margin:16px 0 20px; }
+.contact-info > p{ color:rgba(243,238,230,.66); max-width:44ch; font-size:var(--t-body); }
+
+.cinfo-list{ margin-top:36px; display:flex; flex-direction:column; gap:20px; }
+.cinfo-item{ display:block; font-size:15px; color:rgba(255,255,255,.9); transition:.3s; }
+a.cinfo-item:hover{ color:var(--accent); }
+.cinfo-item .k{
+  display:block; font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(255,255,255,.45); margin-bottom:5px; font-weight:500;
+}
+
+.booking-wrap{ position:relative; }
+.booking-form{
+  background:var(--bg-2); border-radius:12px; padding:clamp(28px,3vw,42px);
+  box-shadow:0 30px 70px rgba(0,0,0,.25);
+}
+.field{ margin-bottom:18px; }
+.field label{
+  display:block; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-2); margin-bottom:8px; font-weight:500;
+}
+.field input, .field select, .field textarea{
+  width:100%; padding:14px 16px; border:1px solid var(--line); border-radius:7px;
+  background:var(--white); font-family:inherit; font-size:15px; color:var(--ink); transition:.3s;
+}
+.field textarea{ resize:vertical; line-height:1.5; }
+.field select{
+  appearance:none; cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E1E1E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 16px center; padding-right:42px;
+}
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--accent-dk); }
+.field input:invalid:not(:placeholder-shown){ border-color:#c0554a; }
+.formsubmit{ width:100%; margin-top:6px; }
+.form-hint{ margin-top:14px; font-size:12px; color:var(--ink-3); text-align:center; }
+.hp-field{ display:none; }
+
+.form-success{
+  background:var(--bg-2); border-radius:12px; padding:clamp(40px,4vw,56px) clamp(28px,3vw,42px);
+  box-shadow:0 30px 70px rgba(0,0,0,.25); text-align:center;
+}
+.form-success .ck{
+  width:60px; height:60px; border-radius:50%; background:var(--accent); color:var(--ink);
+  display:flex; align-items:center; justify-content:center; margin:0 auto 22px; font-size:26px;
+}
+.form-success h3{ font-size:26px; font-weight:300; color:var(--ink); }
+.form-success p{ color:var(--ink-2); margin-top:12px; font-size:15px; }
+.form-success .det{ margin:26px auto 28px; max-width:320px; text-align:left; border-top:1px solid var(--line); padding-top:20px; font-size:14px; }
+.form-success .det .r{ display:flex; justify-content:space-between; gap:16px; padding:7px 0; }
+.form-success .det .r span:first-child{ color:var(--ink-3); }
+.form-success .det .r span:last-child{ text-align:right; }
+
+/* =====================================================================
+   RESPONSIVE — schedule / contact
+   ===================================================================== */
+@media (max-width:900px){
+  .contact-grid{ grid-template-columns:1fr; gap:36px; }
+}
+
+/* =====================================================================
    Component styles are appended in later build steps.
    ===================================================================== */
