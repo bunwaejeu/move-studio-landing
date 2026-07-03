@@ -241,5 +241,89 @@ h1,h2,h3{ font-weight:300; line-height:1.05; letter-spacing:-.02em; }
 }
 
 /* =====================================================================
+   SHARED SECTION HEAD (eyebrow + h2 left, note right)
+   ===================================================================== */
+.shead{
+  display:flex; align-items:flex-end; justify-content:space-between; gap:40px; flex-wrap:wrap;
+  margin-bottom:clamp(40px,5vw,60px);
+}
+.shead h2{ font-size:var(--t-h2); max-width:14ch; margin-top:14px; }
+.shead-note{ max-width:360px; color:var(--ink-2); font-size:var(--t-body); }
+
+/* =====================================================================
+   ABOUT
+   ===================================================================== */
+.about-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,6vw,90px); align-items:center;
+}
+.about-media{ aspect-ratio:4/5; border-radius:8px; overflow:hidden; background:var(--bg-deep); }
+.about-media img{ width:100%; height:100%; object-fit:cover; }
+.about-text h2{ font-size:var(--t-h2); margin:18px 0 24px; max-width:16ch; }
+.about-text p{ color:var(--ink-2); font-size:var(--t-body); max-width:48ch; }
+.about-text p + p{ margin-top:16px; }
+
+.statband{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
+  margin-top:clamp(48px,6vw,80px); border-top:1px solid var(--line); padding-top:44px;
+}
+.stat .n{ font-size:clamp(44px,5vw,72px); font-weight:200; letter-spacing:-.03em; line-height:.9; }
+.stat .n .u{ font-size:.35em; color:var(--accent-dk); vertical-align:super; letter-spacing:0; }
+.stat .l{ margin-top:16px; font-size:14px; line-height:1.5; color:var(--ink-2); max-width:26ch; }
+
+/* =====================================================================
+   PRICING
+   ===================================================================== */
+.price-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.pcard{
+  position:relative; background:var(--white); border:1px solid var(--line); border-radius:12px;
+  padding:36px 30px; display:flex; flex-direction:column;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.pcard:hover{ transform:translateY(-4px); box-shadow:0 22px 46px rgba(30,30,30,.08); }
+.pcard.featured{ background:var(--ink); color:var(--bg); border-color:var(--ink); transform:scale(1.03); }
+.pcard.featured:hover{ transform:scale(1.03) translateY(-4px); }
+.ptag{
+  position:absolute; top:-14px; left:30px; background:var(--accent); color:var(--ink);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+  padding:6px 14px; border-radius:100px;
+}
+.pk{ font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:500; }
+.pcard.featured .pk{ color:rgba(255,255,255,.6); }
+.pprice{ display:flex; align-items:baseline; gap:8px; margin-top:14px; }
+.pnum{ font-size:clamp(36px,4vw,48px); font-weight:300; letter-spacing:-.02em; }
+.punit{ font-size:14px; color:var(--ink-3); }
+.pcard.featured .punit{ color:rgba(255,255,255,.55); }
+.psave{ margin-top:8px; font-size:13px; color:var(--accent-dk); font-weight:500; }
+.pcard.featured .psave{ color:var(--accent); }
+.pfeat{ display:flex; flex-direction:column; gap:14px; margin:28px 0 32px; flex:1; }
+.pfeat li{ position:relative; padding-left:26px; font-size:14px; line-height:1.5; color:var(--ink-2); }
+.pcard.featured .pfeat li{ color:rgba(255,255,255,.8); }
+.pfeat li::before{
+  content:""; position:absolute; left:0; top:6px; width:13px; height:7px;
+  border-left:1.5px solid var(--accent-dk); border-bottom:1.5px solid var(--accent-dk); transform:rotate(-45deg);
+}
+.pcard.featured .pfeat li::before{ border-color:var(--accent); }
+.pbtn{ width:100%; }
+
+.price-note{
+  margin-top:44px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  padding-top:32px; border-top:1px solid var(--line);
+}
+.price-note p{ color:var(--ink-2); font-size:var(--t-body); }
+.price-note b{ color:var(--ink); font-weight:500; }
+
+/* =====================================================================
+   RESPONSIVE — about / pricing
+   ===================================================================== */
+@media (max-width:900px){
+  .about-grid{ grid-template-columns:1fr; gap:28px; }
+  .about-media{ aspect-ratio:16/10; }
+  .statband{ grid-template-columns:1fr; gap:24px; }
+  .price-grid{ grid-template-columns:1fr; }
+  .pcard.featured{ transform:none; }
+  .pcard.featured:hover{ transform:translateY(-4px); }
+}
+
+/* =====================================================================
    Component styles are appended in later build steps.
    ===================================================================== */
