@@ -424,5 +424,41 @@ a.cinfo-item:hover{ color:var(--accent); }
 }
 
 /* =====================================================================
+   FOOTER
+   ===================================================================== */
+.footer{ background:var(--ink); color:var(--bg); padding-block:clamp(60px,8vw,100px) 36px; }
+.footer .top{ display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:44px; }
+.footer .footlogo{ height:44px; width:auto; }
+.footer .tag{ color:rgba(243,238,230,.6); margin-top:18px; max-width:32ch; font-size:14px; line-height:1.6; }
+.footer h4{
+  font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(243,238,230,.5);
+  font-weight:500; margin-bottom:18px;
+}
+.footer ul{ display:flex; flex-direction:column; gap:12px; }
+.footer ul a, .footer ul li{ color:rgba(243,238,230,.85); font-size:14px; }
+.footer ul a{ transition:.3s; }
+.footer ul a:hover{ color:var(--accent); }
+.footer .ci{ display:block; margin-bottom:14px; color:rgba(243,238,230,.85); font-size:14px; transition:.3s; }
+.footer a.ci:hover{ color:var(--accent); }
+.footer .ci b{
+  display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(243,238,230,.4); margin-bottom:5px; font-weight:500;
+}
+.footer .bot{
+  display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+  margin-top:64px; padding-top:26px; border-top:1px solid rgba(243,238,230,.14);
+  font-size:12px; letter-spacing:.03em; color:rgba(243,238,230,.5);
+}
+.footer .bot .soc{ display:flex; gap:22px; }
+.footer .bot .soc a:hover{ color:var(--accent); }
+
+@media (max-width:760px){
+  .footer .top{ grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media (max-width:520px){
+  .footer .top{ grid-template-columns:1fr; gap:32px; }
+}
+
+/* =====================================================================
    Component styles are appended in later build steps.
    ===================================================================== */
