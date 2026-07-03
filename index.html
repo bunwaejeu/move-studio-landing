@@ -26,12 +26,33 @@
        1. HEADER / NAV
        ============================================================ -->
   <header class="nav" id="nav">
-    <!-- built in Step 2 -->
+    <a href="#home" class="brand">
+      <img src="assets/logo-mark-light.png" alt="" class="lg lg-light" />
+      <img src="assets/logo-mark-dark.png" alt="" class="lg lg-dark" />
+      <span>Move<span class="dot">·</span>Studio</span>
+    </a>
+
+    <nav class="navlinks" aria-label="Điều hướng chính">
+      <a href="#about">Giới thiệu</a>
+      <a href="#pricing">Gói tập</a>
+      <a href="#schedule">Lịch tập</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+
+    <a href="#contact" class="navcta">Đặt lịch</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Mở menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
   <!-- Mobile menu drawer -->
-  <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <!-- built in Step 2 -->
+  <nav class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Điều hướng di động">
+    <a href="#about">Giới thiệu</a>
+    <a href="#pricing">Gói tập</a>
+    <a href="#schedule">Lịch tập</a>
+    <a href="#contact">Liên hệ</a>
+    <a href="#contact" class="btn btn-accent">Đặt lịch ngay</a>
   </nav>
 
   <main>
@@ -39,12 +60,34 @@
          2. HERO
          ============================================================ -->
     <section class="hero" id="home">
-      <!-- built in Step 2 -->
+      <img src="assets/hero-studio.jpg" alt="Không gian tập luyện tại Move Studio" class="hero-bg" />
+      <div class="scrim"></div>
+      <div class="inner">
+        <div class="herorow">
+          <div class="herotext">
+            <p class="eyebrow">Boutique Studio · Tây Hồ, Hà Nội</p>
+            <h1>Vận động đúng cách,<br /><span class="em accent">sống trọn</span> phong độ.</h1>
+            <p class="sub">Huấn luyện riêng 1:1/1:2 và lớp nhóm giới hạn 4 người — Gym, Pilates, Handstand, Calisthenics và nhiều hơn nữa. Thiết kế lộ trình riêng cho cơ thể của bạn.</p>
+            <div class="acts">
+              <a href="#contact" class="btn btn-accent">Đặt lịch tập thử</a>
+              <a href="#pricing" class="btn btn-outline-light">Xem gói tập</a>
+            </div>
+          </div>
+          <div class="meta">
+            <div><span class="k">Bộ môn</span>Gym · Pilates · Handstand</div>
+            <div><span class="k">Quy mô lớp</span>Tối đa 4 người</div>
+          </div>
+        </div>
+      </div>
+      <div class="scrollcue"><span class="ln"></span>Cuộn xuống</div>
     </section>
 
     <!-- marquee strip -->
     <div class="strip" aria-hidden="true">
-      <!-- built in Step 2 -->
+      <div class="track">
+        <span>Pilates</span><span>Gym & Fitness</span><span>Handstand</span><span>Calisthenics</span><span>Ground Flow</span><span>Hyrox</span>
+        <span>Pilates</span><span>Gym & Fitness</span><span>Handstand</span><span>Calisthenics</span><span>Ground Flow</span><span>Hyrox</span>
+      </div>
     </div>
 
     <!-- ============================================================
